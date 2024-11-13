@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ibeni\\Desktop\\MathGame\\MathGame.csproj",
+      "projectUniqueName": "C:\\Users\\ibeni\\Desktop\\tcsa\\MathGame\\MathGame.csproj",
       "projectName": "MathGame",
-      "projectPath": "C:\\Users\\ibeni\\Desktop\\MathGame\\MathGame.csproj",
+      "projectPath": "C:\\Users\\ibeni\\Desktop\\tcsa\\MathGame\\MathGame.csproj",
       "packagesPath": "C:\\Users\\ibeni\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ibeni\\Desktop\\MathGame\\obj\\",
+      "outputPath": "C:\\Users\\ibeni\\Desktop\\tcsa\\MathGame\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ibeni\\AppData\\Roaming\\NuGet\\NuGet.Config",
