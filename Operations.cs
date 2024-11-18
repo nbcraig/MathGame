@@ -33,26 +33,91 @@ public class Operations
 
         Console.WriteLine($"Your score is {score}");
 
-        /* Give the user the choice to:
-         - See history
-         - Quit the game */
-        var userInput = Console.ReadLine();
-        switch (userInput)
+        UserPrompts();
+    }
+
+    public static void SubtractionGame()
+    {
+        // Initialise score
+        var score = 0;
+
+        for (int i = 0; i < 5; i++)
         {
-            case "H":
-                displayGameHistory();
-                break;
-            case "Q":
-                Console.WriteLine("You're leaving the game!");
-                Console.WriteLine("GoodBye!");
-                Environment.Exit(0);
-                break;
-            default:
-                Console.WriteLine("Invalid input!");
-                Console.WriteLine("GoodBye!");
-                Environment.Exit(0);
-                break;
+            var numbers = GetNumbers();
+            gameHistory.Add($"{numbers[0]} - {numbers[1]}");
+
+            Console.WriteLine($"Solve {numbers[0]} - {numbers[1]}");
+            string? userSolution = Console.ReadLine();
+
+            var result = numbers[0] - numbers[1];
+            if (int.Parse(userSolution) == result)
+            {
+                score++;
+                Console.WriteLine("success");
+            }
+            else
+                Console.WriteLine("failure");
         }
+
+        Console.WriteLine($"Your score is {score}");
+
+        UserPrompts();
+    }
+
+    public static void MultiplicationGame()
+    {
+        // Initialise score
+        var score = 0;
+
+        for (int i = 0; i < 5; i++)
+        {
+            var numbers = GetNumbers();
+            gameHistory.Add($"{numbers[0]} * {numbers[1]}");
+
+            Console.WriteLine($"Solve {numbers[0]} * {numbers[1]}");
+            string? userSolution = Console.ReadLine();
+
+            var result = numbers[0] * numbers[1];
+            if (int.Parse(userSolution) == result)
+            {
+                score++;
+                Console.WriteLine("success");
+            }
+            else
+                Console.WriteLine("failure");
+        }
+
+        Console.WriteLine($"Your score is {score}");
+
+        UserPrompts();
+    }
+
+    public static void DivisionGame()
+    {
+        // Initialise score
+        var score = 0;
+
+        for (int i = 0; i < 5; i++)
+        {
+            var numbers = GetNumbers();
+            gameHistory.Add($"{numbers[0]} / {numbers[1]}");
+
+            Console.WriteLine($"Solve {numbers[0]} / {numbers[1]}");
+            string? userSolution = Console.ReadLine();
+
+            var result = numbers[0] / numbers[1];
+            if (int.Parse(userSolution) == result)
+            {
+                score++;
+                Console.WriteLine("success");
+            }
+            else
+                Console.WriteLine("failure");
+        }
+
+        Console.WriteLine($"Your score is {score}");
+
+        UserPrompts();
     }
 
     public static void displayGameHistory()
