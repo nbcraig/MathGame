@@ -62,6 +62,7 @@ N - New Game");
             case "N":
                 // Call the menu function for the user
                 // to choose a new game
+                Console.Clear();
                 Menu();
                 break;
             default:
