@@ -29,50 +29,58 @@ Additionally, double check your project and try to find opportunities to
 achieve the same functionality with less code, avoiding repetition when possible.
 */
 
-// Prompt the user to write their name
-Console.WriteLine("Enter your name!");
-string? name = Console.ReadLine();
-
-Console.WriteLine($"Hello {name}! Welcome to the MathGame!");
-
-Menu();
-
-void Menu()
+internal class Program
 {
-    Console.WriteLine("Choose an operation!");
-    Console.WriteLine("A - Addition");
-    Console.WriteLine("S - Subtraction");
-    Console.WriteLine("M - Multiplication");
-    Console.WriteLine("D - Division");
-    Console.WriteLine("H - Show History");
-    Console.WriteLine("Q - Quit!");
-    
-    string? userInput = Console.ReadLine(); 
-    
-    switch (userInput)
+    private static void Main(string[] args)
     {
-        case "A":
-            AdditionGame();
-            break;
-        case "S":
-            Console.WriteLine("Subtraction selected!");
-            break;
-        case "M":
-            Console.WriteLine("Multiplication selected!");
-            break;
-        case "D":
-            Console.WriteLine("Division selected!");
-            break;
-        case "H":
-            Console.WriteLine("Show History selected!");
-            break;
-        case "Q":
-            Console.WriteLine("Quit?");
-            break;
-        default:
-            Console.WriteLine("Invalid input!");
-            Console.WriteLine("GoodBye!");
-            Environment.Exit(0);
-            break;
+        // Prompt the user to write their name
+        Console.WriteLine("Enter your name!");
+        string? name = Console.ReadLine();
+
+        Console.WriteLine($"Hello {name}! Welcome to the MathGame!");
+
+
+        Menu();
+
+        
+        void Menu()
+        {
+            Console.WriteLine("Choose an operation!");
+            Console.WriteLine("A - Addition");
+            Console.WriteLine("S - Subtraction");
+            Console.WriteLine("M - Multiplication");
+            Console.WriteLine("D - Division");
+            Console.WriteLine("H - Show History");
+            Console.WriteLine("Q - Quit!");
+
+            string? userInput = Console.ReadLine();
+
+            switch (userInput)
+            {
+                case "A":
+                    AdditionGame();
+                    break;
+                case "S":
+                    Console.WriteLine("Subtraction selected!");
+                    break;
+                case "M":
+                    Console.WriteLine("Multiplication selected!");
+                    break;
+                case "D":
+                    Console.WriteLine("Division selected!");
+                    break;
+                case "H":
+                    displayGameHistory();
+                    break;
+                case "Q":
+                    Console.WriteLine("Quit?");
+                    break;
+                default:
+                    Console.WriteLine("Invalid input!");
+                    Console.WriteLine("GoodBye!");
+                    Environment.Exit(0);
+                    break;
+            }
+        }
     }
 }
