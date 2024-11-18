@@ -1,5 +1,6 @@
 namespace MathGame;
-using static MathGame.Operations;
+
+using static MathGame.GameLogic;
 
 internal class Helpers
 {
@@ -35,9 +36,18 @@ internal class Helpers
 
     /* Give the user the choice to:
      - See history
-     - Quit the game */
+     - Quit the game 
+     - Play new game*/
     public static void UserPrompts()
     {
+        Console.WriteLine("Game Over!");
+        Console.WriteLine("Choose an action:");
+        Console.WriteLine("-----------------------------");
+        Console.WriteLine(@"\n
+H - See History
+Q - Quit Game
+N - New Game");
+
         var userInput = Console.ReadLine();
         switch (userInput)
         {
@@ -48,6 +58,11 @@ internal class Helpers
                 Console.WriteLine("You're leaving the game!");
                 Console.WriteLine("GoodBye!");
                 Environment.Exit(0);
+                break;
+            case "N":
+                // Call the menu function for the user
+                // to choose a new game
+                Menu();
                 break;
             default:
                 Console.WriteLine("Invalid input!");

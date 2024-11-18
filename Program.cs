@@ -1,4 +1,4 @@
-﻿using static MathGame.Operations;
+﻿using static MathGame.GameLogic;
 /*
 1. You need to create a Math game containing the 4 basic operations
 
@@ -39,47 +39,6 @@ internal class Program
 
         Console.WriteLine($"Hello {name}! Welcome to the MathGame!");
 
-
         Menu();
-
-        
-        void Menu()
-        {
-            Console.WriteLine("Choose an operation!");
-            Console.WriteLine("A - Addition");
-            Console.WriteLine("S - Subtraction");
-            Console.WriteLine("M - Multiplication");
-            Console.WriteLine("D - Division");
-            Console.WriteLine("H - Show History");
-            Console.WriteLine("Q - Quit!");
-
-            string? userInput = Console.ReadLine();
-
-            switch (userInput)
-            {
-                case "A":
-                    AdditionGame();
-                    break;
-                case "S":
-                    SubtractionGame();
-                    break;
-                case "M":
-                    MultiplicationGame();
-                    break;
-                case "D":
-                    DivisionGame();
-                    break;
-                case "Q":
-                    Console.WriteLine("You're leaving the game!");
-                    Console.WriteLine("GoodBye!");
-                    Environment.Exit(0);
-                    break;
-                default:
-                    Console.WriteLine("Invalid input!");
-                    Console.WriteLine("GoodBye!");
-                    Environment.Exit(0);
-                    break;
-            }
-        }
     }
 }

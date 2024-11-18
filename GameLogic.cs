@@ -3,10 +3,49 @@ using static MathGame.Helpers;
 
 namespace MathGame;
 
-public class Operations
+public class GameLogic
 {
     // Initialise gameHistory a List collection
     public static List<string> gameHistory = new List<string>();
+
+    public static void Menu()
+    {
+        Console.WriteLine("Choose an operation!");
+        Console.WriteLine("A - Addition");
+        Console.WriteLine("S - Subtraction");
+        Console.WriteLine("M - Multiplication");
+        Console.WriteLine("D - Division");
+        Console.WriteLine("H - Show History");
+        Console.WriteLine("Q - Quit!");
+
+        string? userInput = Console.ReadLine();
+
+        switch (userInput)
+        {
+            case "A":
+                AdditionGame();
+                break;
+            case "S":
+                SubtractionGame();
+                break;
+            case "M":
+                MultiplicationGame();
+                break;
+            case "D":
+                DivisionGame();
+                break;
+            case "Q":
+                Console.WriteLine("You're leaving the game!");
+                Console.WriteLine("GoodBye!");
+                Environment.Exit(0);
+                break;
+            default:
+                Console.WriteLine("Invalid input!");
+                Console.WriteLine("GoodBye!");
+                Environment.Exit(0);
+                break;
+        }
+    }
 
     public static void AdditionGame()
     {
@@ -122,9 +161,13 @@ public class Operations
 
     public static void displayGameHistory()
     {
+        var iterator = 1;
+        Console.WriteLine("Game History");
+        Console.WriteLine("-----------------------------");
         foreach (var game in gameHistory)
         {
-            Console.WriteLine(game);
+            Console.WriteLine($"Game {iterator}: {game}");
+            iterator++;
         }
     }
 }
