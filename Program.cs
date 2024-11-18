@@ -61,19 +61,18 @@ internal class Program
                     AdditionGame();
                     break;
                 case "S":
-                    Console.WriteLine("Subtraction selected!");
+                    SubtractionGame();
                     break;
                 case "M":
-                    Console.WriteLine("Multiplication selected!");
+                    MultiplicationGame();
                     break;
                 case "D":
-                    Console.WriteLine("Division selected!");
-                    break;
-                case "H":
-                    displayGameHistory();
+                    DivisionGame();
                     break;
                 case "Q":
-                    Console.WriteLine("Quit?");
+                    Console.WriteLine("You're leaving the game!");
+                    Console.WriteLine("GoodBye!");
+                    Environment.Exit(0);
                     break;
                 default:
                     Console.WriteLine("Invalid input!");

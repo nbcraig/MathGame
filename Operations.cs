@@ -99,7 +99,7 @@ public class Operations
 
         for (int i = 0; i < 5; i++)
         {
-            var numbers = GetNumbers();
+            var numbers = GetDivisionNumbers();
             gameHistory.Add($"{numbers[0]} / {numbers[1]}");
 
             Console.WriteLine($"Solve {numbers[0]} / {numbers[1]}");

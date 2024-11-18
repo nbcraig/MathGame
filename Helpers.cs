@@ -13,6 +13,25 @@ internal class Helpers
         return [firstNumber, secondNumber];
     }
 
+    // Number generator that handle division specifications
+    public static int[] GetDivisionNumbers()
+    {
+        var numbers = new int[2];
+        var random = new Random();
+        int firstNumber = random.Next(0, 100);
+        int secondNumber = random.Next(1, 10);
+
+        // Verifies if firstNumber / secondNumber results in an integer
+        while (firstNumber % secondNumber != 0)
+        {
+            firstNumber = random.Next(0, 100);
+            secondNumber = random.Next(1, 10);
+        }
+
+        numbers = [firstNumber, secondNumber];
+
+        return numbers;
+    }
 
     /* Give the user the choice to:
      - See history
