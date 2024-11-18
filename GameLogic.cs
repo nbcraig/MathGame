@@ -11,27 +11,33 @@ public class GameLogic
     public static void Menu()
     {
         Console.WriteLine("Choose an operation!");
-        Console.WriteLine("A - Addition");
-        Console.WriteLine("S - Subtraction");
-        Console.WriteLine("M - Multiplication");
-        Console.WriteLine("D - Division");
-        Console.WriteLine("H - Show History");
-        Console.WriteLine("Q - Quit!");
+        Console.WriteLine("        A - Addition");
+        Console.WriteLine("        S - Subtraction");
+        Console.WriteLine("        M - Multiplication");
+        Console.WriteLine("        D - Division");
+        Console.WriteLine("        Q - Quit!");
 
         string? userInput = Console.ReadLine();
 
-        switch (userInput)
+        switch (userInput.Trim().ToUpper())
         {
+            // After selecting a new game,
+            // a string of the game name will be added to gameHistory
+            // in order to provide a more descriptive display of game history
             case "A":
+                gameHistory.Add("----Addition game start----");
                 AdditionGame();
                 break;
             case "S":
+                gameHistory.Add("----Subtraction game start----");
                 SubtractionGame();
                 break;
             case "M":
+                gameHistory.Add("----Multiplication game start----");
                 MultiplicationGame();
                 break;
             case "D":
+                gameHistory.Add("----Division game start----");
                 DivisionGame();
                 break;
             case "Q":
@@ -51,11 +57,14 @@ public class GameLogic
     {
         // Initialise score
         var score = 0;
+        // Add iterator on games played to be used when displaying the game history
+        var iterator = 1;
 
         for (int i = 0; i < 5; i++)
         {
             var numbers = GetNumbers();
-            gameHistory.Add($"{numbers[0]} + {numbers[1]}");
+            gameHistory.Add($"Game {iterator}: {numbers[0]} + {numbers[1]}");
+            iterator++;
 
             Console.WriteLine($"Solve {numbers[0]} + {numbers[1]}");
             string? userSolution = Console.ReadLine();
@@ -79,11 +88,14 @@ public class GameLogic
     {
         // Initialise score
         var score = 0;
+        // Add iterator on games played to be used when displaying the game history
+        var iterator = 1;
 
         for (int i = 0; i < 5; i++)
         {
             var numbers = GetNumbers();
-            gameHistory.Add($"{numbers[0]} - {numbers[1]}");
+            gameHistory.Add($"Game {iterator}: {numbers[0]} - {numbers[1]}");
+            iterator++;
 
             Console.WriteLine($"Solve {numbers[0]} - {numbers[1]}");
             string? userSolution = Console.ReadLine();
@@ -107,11 +119,14 @@ public class GameLogic
     {
         // Initialise score
         var score = 0;
+        // Add iterator on games played to be used when displaying the game history
+        var iterator = 1;
 
         for (int i = 0; i < 5; i++)
         {
             var numbers = GetNumbers();
-            gameHistory.Add($"{numbers[0]} * {numbers[1]}");
+            gameHistory.Add($"Game {iterator}: {numbers[0]} * {numbers[1]}");
+            iterator++;
 
             Console.WriteLine($"Solve {numbers[0]} * {numbers[1]}");
             string? userSolution = Console.ReadLine();
@@ -135,11 +150,14 @@ public class GameLogic
     {
         // Initialise score
         var score = 0;
+        // Add iterator on games played to be used when displaying the game history
+        var iterator = 1;
 
         for (int i = 0; i < 5; i++)
         {
             var numbers = GetDivisionNumbers();
-            gameHistory.Add($"{numbers[0]} / {numbers[1]}");
+            gameHistory.Add($"Game {iterator}: {numbers[0]} / {numbers[1]}");
+            iterator++;
 
             Console.WriteLine($"Solve {numbers[0]} / {numbers[1]}");
             string? userSolution = Console.ReadLine();
@@ -161,13 +179,13 @@ public class GameLogic
 
     public static void displayGameHistory()
     {
-        var iterator = 1;
+        Console.Clear();
+
         Console.WriteLine("Game History");
         Console.WriteLine("-----------------------------");
         foreach (var game in gameHistory)
         {
-            Console.WriteLine($"Game {iterator}: {game}");
-            iterator++;
+            Console.WriteLine($"{game}");
         }
     }
 }

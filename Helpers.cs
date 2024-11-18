@@ -8,8 +8,8 @@ internal class Helpers
     public static int[] GetNumbers()
     {
         var random = new Random();
-        int firstNumber = random.Next(0, 100);
-        int secondNumber = random.Next(0, 100);
+        int firstNumber = random.Next(0, 10);
+        int secondNumber = random.Next(0, 10);
 
         return [firstNumber, secondNumber];
     }
@@ -34,27 +34,28 @@ internal class Helpers
         return numbers;
     }
 
-    /* Give the user the choice to:
+    /* After each round, give the user the choice to:
      - See history
      - Quit the game 
      - Play new game*/
     public static void UserPrompts()
     {
+        Console.Clear();
         Console.WriteLine("Game Over!");
         Console.WriteLine("Choose an action:");
         Console.WriteLine("-----------------------------");
-        Console.WriteLine(@"\n
-H - See History
-Q - Quit Game
-N - New Game");
+        Console.WriteLine(@"            H - See History
+            Q - Quit Game
+            N - New Game");
 
         var userInput = Console.ReadLine();
-        switch (userInput)
+        switch (userInput.Trim().ToUpper())
         {
             case "H":
                 displayGameHistory();
                 break;
             case "Q":
+                Console.Clear();
                 Console.WriteLine("You're leaving the game!");
                 Console.WriteLine("GoodBye!");
                 Environment.Exit(0);

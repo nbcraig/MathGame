@@ -1,5 +1,4 @@
-﻿using static MathGame.GameLogic;
-/*
+﻿/*
 1. You need to create a Math game containing the 4 basic operations
 
 2. The divisions should result on INTEGERS ONLY and dividends 
@@ -29,16 +28,10 @@ Additionally, double check your project and try to find opportunities to
 achieve the same functionality with less code, avoiding repetition when possible.
 */
 
-internal class Program
-{
-    private static void Main(string[] args)
-    {
-        // Prompt the user to write their name
-        Console.WriteLine("Enter your name!");
-        string? name = Console.ReadLine();
+using static MathGame.GameLogic;
 
-        Console.WriteLine($"Hello {name}! Welcome to the MathGame!");
+Console.WriteLine("Enter your name!");
+string? name = Console.ReadLine();
+Console.WriteLine($"Hello {name}! Welcome to the MathGame!");
 
-        Menu();
-    }
-}
+Menu();
