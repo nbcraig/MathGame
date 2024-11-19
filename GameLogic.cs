@@ -1,10 +1,12 @@
-﻿using static Program;
-using static MathGame.Helpers;
+﻿using static MathGame.Helpers;
 
 namespace MathGame
 {
     internal class GameLogic
     {
+        // Initialise gameHistory a List collection
+        public static List<string> gameHistory = new List<string>();
+
         internal static void PlayGame(Func<int, int, int> OperationFunction, string operationSign)
         {
             // Initialise score
@@ -25,10 +27,11 @@ namespace MathGame
                 iterator++;
 
                 Console.WriteLine($"Solve {numbers[0]} {operationSign} {numbers[1]}");
-                string? userSolution = Console.ReadLine();
 
-                var result = OperationFunction(numbers[0], numbers[1]);
-                if (int.Parse(userSolution) == result)
+                string? userAnswer = Console.ReadLine();
+                var expectedAnswer = OperationFunction(numbers[0], numbers[1]);
+
+                if (ValidUserAnswer(userAnswer,expectedAnswer))
                 {
                     score++;
                     Console.WriteLine("success");
@@ -40,6 +43,18 @@ namespace MathGame
             Console.WriteLine($"Your score is {score}");
 
             UserPrompts();
+        }
+
+        public static void DisplayGameHistory()
+        {
+            Console.Clear();
+
+            Console.WriteLine("Game History");
+            Console.WriteLine("-----------------------------");
+            foreach (var game in gameHistory)
+            {
+                Console.WriteLine($"{game}");
+            }
         }
     }
 }
