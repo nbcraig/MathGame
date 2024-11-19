@@ -1,4 +1,5 @@
 using static Program;
+using static MathGame.GameLogic;
 
 namespace MathGame;
 
@@ -34,6 +35,20 @@ internal class Helpers
         return numbers;
     }
 
+    // Self explanatory
+    internal static bool ValidUserAnswer(string userAnswer, int expectedAnswer)
+    {
+        try
+        {
+            return int.Parse(userAnswer) == expectedAnswer;
+        }
+        catch
+        {
+            return false;
+        }
+
+    }
+
     /* After each round, give the user the choice to:
      - See history
      - Quit the game 
@@ -52,7 +67,7 @@ internal class Helpers
         switch (userInput.Trim().ToUpper())
         {
             case "H":
-                displayGameHistory();
+                DisplayGameHistory();
                 break;
             case "Q":
                 Console.Clear();
@@ -69,7 +84,7 @@ internal class Helpers
             default:
                 Console.WriteLine("Invalid input!");
                 Console.WriteLine("GoodBye!");
-                Environment.Exit(0);
+                Environment.Exit(0); ;
                 break;
         }
     }
