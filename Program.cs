@@ -28,10 +28,77 @@ Additionally, double check your project and try to find opportunities to
 achieve the same functionality with less code, avoiding repetition when possible.
 */
 
+using static MathGame.Helpers;
 using static MathGame.GameLogic;
 
-Console.WriteLine("Enter your name!");
-string? name = Console.ReadLine();
-Console.WriteLine($"Hello {name}! Welcome to the MathGame!");
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        Console.WriteLine("Enter your name!");
+        string? name = Console.ReadLine();
+        Console.WriteLine($"Hello {name}! Welcome to the MathGame!");
 
-Menu();
+        Menu();
+    }
+
+    // Initialise gameHistory a List collection
+    public static List<string> gameHistory = new List<string>();
+
+    public static void Menu()
+    {
+        Console.WriteLine("Choose an operation!");
+        Console.WriteLine("        A - Addition");
+        Console.WriteLine("        S - Subtraction");
+        Console.WriteLine("        M - Multiplication");
+        Console.WriteLine("        D - Division");
+        Console.WriteLine("        Q - Quit!");
+
+        string? userInput = Console.ReadLine();
+
+        switch (userInput.Trim().ToUpper())
+        {
+            // After selecting a new game,
+            // a string of the game name will be added to gameHistory
+            // in order to provide a more descriptive display of game history
+            case "A":
+                gameHistory.Add("----Addition game start----");
+                PlayGame((a, b) => a + b, "+");
+                break;
+            case "S":
+                gameHistory.Add("----Subtraction game start----");
+                PlayGame((a, b) => a - b, "-");
+                break;
+            case "M":
+                gameHistory.Add("----Multiplication game start----");
+                PlayGame((a, b) => a * b, "*");
+                break;
+            case "D":
+                gameHistory.Add("----Division game start----");
+                PlayGame((a, b) => a / b, "/");
+                break;
+            case "Q":
+                Console.WriteLine("You're leaving the game!");
+                Console.WriteLine("GoodBye!");
+                Environment.Exit(0);
+                break;
+            default:
+                Console.WriteLine("Invalid input!");
+                Console.WriteLine("GoodBye!");
+                Environment.Exit(0);
+                break;
+        }
+    }
+
+    public static void displayGameHistory()
+    {
+        Console.Clear();
+
+        Console.WriteLine("Game History");
+        Console.WriteLine("-----------------------------");
+        foreach (var game in gameHistory)
+        {
+            Console.WriteLine($"{game}");
+        }
+    }
+}

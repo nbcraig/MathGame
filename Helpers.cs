@@ -1,11 +1,11 @@
-namespace MathGame;
+using static Program;
 
-using static MathGame.GameLogic;
+namespace MathGame;
 
 internal class Helpers
 {
     // Generate numbers for the operations, except division
-    public static int[] GetNumbers()
+    internal static int[] GetNumbers()
     {
         var random = new Random();
         int firstNumber = random.Next(0, 10);
@@ -15,7 +15,7 @@ internal class Helpers
     }
 
     // Number generator that handle division specifications
-    public static int[] GetDivisionNumbers()
+    internal static int[] GetDivisionNumbers()
     {
         var numbers = new int[2];
         var random = new Random();
@@ -37,8 +37,8 @@ internal class Helpers
     /* After each round, give the user the choice to:
      - See history
      - Quit the game 
-     - Play new game*/
-    public static void UserPrompts()
+     - Play new game */
+    internal static void UserPrompts()
     {
         Console.Clear();
         Console.WriteLine("Game Over!");
