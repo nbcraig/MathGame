@@ -1,4 +1,13 @@
-## Project
+# Solve basic arithmetic equaations in your console
+
+# How to run ?
+> Make sure you have the .NET runtime installed on your computer with the .NET version 8.0+
+- Open your terminal and type :
+- > git clone https://github.com/nbcraig/MathGame
+- > cd MathGame
+- > dotnet run
+
+## Project [DONE]
 1. You need to create a Math game containing the 4 basic operations
 
 2. The divisions should result on INTEGERS ONLY and dividends 
@@ -14,7 +23,7 @@ be an option in the menu for the user to visualize a history of previous games.
 5. You don't need to record results on a database. 
 Once the program is closed the results will be deleted.
 
-## Challenges
+## Challenges [TODO]
 1. Try to implement levels of difficulty.
 
 2. Add a timer to track how long the user takes to finish the game.
