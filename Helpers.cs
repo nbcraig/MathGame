@@ -1,6 +1,6 @@
-using static Program;
-using static MathGame.GameLogic;
-
+using System.Diagnostics;
+using static MathGame.MathGame;
+    
 namespace MathGame;
 
 internal class Helpers
@@ -8,7 +8,7 @@ internal class Helpers
     // Generate numbers for the operations, except division
     internal static int[] GetNumbers()
     {
-        var random = new Random();
+        Random random = new ();
         int firstNumber = random.Next(0, 10);
         int secondNumber = random.Next(0, 10);
 
@@ -60,6 +60,7 @@ internal class Helpers
         Console.WriteLine("Choose an action:");
         Console.WriteLine("-----------------------------");
         Console.WriteLine(@"            H - See History
+            S - Display score
             Q - Quit Game
             N - New Game");
 
@@ -75,17 +76,38 @@ internal class Helpers
                 Console.WriteLine("GoodBye!");
                 Environment.Exit(0);
                 break;
+            case "S":
+                Console.Clear();
+                DisplayScore();
+                break;
             case "N":
                 // Call the menu function for the user
-                // to choose a new game
+                // to start a new game
                 Console.Clear();
-                Menu();
+                DisplayMenu();
                 break;
             default:
                 Console.WriteLine("Invalid input!");
                 Console.WriteLine("GoodBye!");
-                Environment.Exit(0); ;
+                Environment.Exit(0);
                 break;
         }
+    }
+
+    internal static void DisplayGameHistory()
+    {
+        Console.Clear();
+
+        Console.WriteLine("Game History");
+        Console.WriteLine("-----------------------------");
+        foreach (var game in gameHistory)
+        {
+            Console.WriteLine($"{game}");
+        }
+    }
+
+    internal static void DisplayScore()
+    {
+       Console.WriteLine($"YOUR SCORE IS: {score}");
     }
 }

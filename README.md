@@ -1,11 +1,11 @@
-# Solve basic arithmetic equaations in your console
+# Solve basic arithmetic equations in your console
 
 # How to run ?
 > Make sure you have the .NET runtime installed on your computer with the .NET version 8.0+
 - Open your terminal and type :
-- > git clone https://github.com/nbcraig/MathGame
-- > cd MathGame
-- > dotnet run
+- git clone https://github.com/nbcraig/MathGame
+- cd MathGame
+- dotnet run
 
 ## Project [DONE]
 1. You need to create a Math game containing the 4 basic operations
