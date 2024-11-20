@@ -1,4 +1,5 @@
-﻿using static MathGame.MathGame;
+﻿using static MathGame.Helpers;
+using static MathGame.MathGame;
 
 internal class Program
 {
